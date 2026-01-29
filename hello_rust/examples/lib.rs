@@ -22,7 +22,29 @@ pub fn swap(t: (u32, u32)) -> (u32, u32) {
     (t.1, t.0)
 }
 
+// Arrays
+pub fn zeros() -> [u32; 100] {
+    [0; 100]
+}
+pub fn first_3(s: &[u32]) -> &[u32] {
+    &s[..3]
+}
+pub fn last_3(s: &[u32]) -> &[u32] {
+    &s[s.len() - 3 ..]
+}
+
 fn main() {
+    // Arrays
+    println!("arr: {:?}", zeros());
+    let arr = [2, 5, 6, 3, 1];
+    println!("first_3: {:?}", first_3(&arr));
+    println!("last_3: {:?}", last_3(&arr));
+
+    // Tuples
+    println!("first element in tuple: {}", first((true, 42, 'a')));
+    println!("last element in tuple: {}", last((true, 42, 'a')));
+    println!("Swap elements: {:?}", swap((10, 2)));
+
     // Overflow
     println!("{}", eq('a', 'b')); // false
     println!("{}", eq('a', 'a')); // true
@@ -30,9 +52,4 @@ fn main() {
     println!("{}", sum);
     let result = cast(5, -2, 3.5);
     println!("{}", result);
-
-    // Tuples
-    println!("first element in tuple: {}", first((true, 42, 'a')));
-    println!("last element in tuple: {}", last((true, 42, 'a')));
-    println!("Swap elements: {:?}", swap((10, 2)));
 }
