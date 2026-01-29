@@ -1,7 +1,7 @@
 #![allow(unused)]
 
-// Array - collection of elements with length known at compile time
-// Slice - collection of elements with length now known at compile time
+// Array - collection of elements with length known at compile time/ length is fixed at compile time
+// Slice - collection of elements with length now known at compile time/ be determined at runtime
 fn main() {
     // Array
     let arr: [u32; 3]  = [1, 2, 3];
