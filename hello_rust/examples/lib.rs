@@ -33,23 +33,40 @@ pub fn last_3(s: &[u32]) -> &[u32] {
     &s[s.len() - 3 ..]
 }
 
+// Strings and &str
+pub fn hello() -> String {
+    String::from("Hello Rust")
+}
+pub fn greet(name: &str) -> String {
+    format!("Hello {}!", name)
+}
+pub fn append(mut s: String) -> String {
+    s += "!";
+    s
+}
+
 fn main() {
-    // Arrays
-    println!("arr: {:?}", zeros());
-    let arr = [2, 5, 6, 3, 1];
-    println!("first_3: {:?}", first_3(&arr));
-    println!("last_3: {:?}", last_3(&arr));
+    // Strings and &str
+    println!("{}", hello());
+    println!("{}", greet("Rust"));
+    println!("{}", append(String::from("Hello Rust")));
 
-    // Tuples
-    println!("first element in tuple: {}", first((true, 42, 'a')));
-    println!("last element in tuple: {}", last((true, 42, 'a')));
-    println!("Swap elements: {:?}", swap((10, 2)));
+    // // Arrays
+    // println!("arr: {:?}", zeros());
+    // let arr = [2, 5, 6, 3, 1];
+    // println!("first_3: {:?}", first_3(&arr));
+    // println!("last_3: {:?}", last_3(&arr));
 
-    // Overflow
-    println!("{}", eq('a', 'b')); // false
-    println!("{}", eq('a', 'a')); // true
-    let sum = add(1.0, 2.0, 3.0);
-    println!("{}", sum);
-    let result = cast(5, -2, 3.5);
-    println!("{}", result);
+    // // Tuples
+    // println!("first element in tuple: {}", first((true, 42, 'a')));
+    // println!("last element in tuple: {}", last((true, 42, 'a')));
+    // println!("Swap elements: {:?}", swap((10, 2)));
+
+    // // Overflow
+    // println!("{}", eq('a', 'b')); // false
+    // println!("{}", eq('a', 'a')); // true
+    // let sum = add(1.0, 2.0, 3.0);
+    // println!("{}", sum);
+    // let result = cast(5, -2, 3.5);
+    // println!("{}", result);
 }
