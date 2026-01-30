@@ -67,16 +67,26 @@ pub enum Color {
 //     }
 // }
 
-// Vec
-pub fn init(x: u32, y: u32, z: u32) -> Vec<u32> {
-    vec![x, y, z]
+// // Vec
+// pub fn init(x: u32, y: u32, z: u32) -> Vec<u32> {
+//     vec![x, y, z]
+// }
+
+// HashMap
+use std::collections::HashMap;
+pub fn init(address: String, amount: u32) -> HashMap<String, u32> {
+    let mut map: HashMap<String, u32> = HashMap::new();
+    map.insert(address, amount);
+    map
 }
 
 fn main() {
-    // Vec
-    println!("{:?}", init(1, 2, 3));
+    // Hash Map
+    let balances = init("0xABC".to_string(), 100);
+    println!("{:?}", balances);
 
-
+    // // Vec
+    // println!("{:?}", init(1, 2, 3));
 
     // // Struct
     // let a = Account { 
