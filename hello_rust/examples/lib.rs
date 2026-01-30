@@ -119,19 +119,32 @@ pub fn num_to_string(num: u32) -> String {
         _ => "ohter".to_string()
     }
 }
+// pub fn unwrap_or_default(x: Option<u32>, v: u32) -> u32 {
+//     match x {
+//         Some(n) => n,
+//         None => v
+//     }
+// }
+
+// If Let
 pub fn unwrap_or_default(x: Option<u32>, v: u32) -> u32 {
-    match x {
-        Some(n) => n,
-        None => v
+    if let Some(val) = x {
+        val
+    } else {
+        v
     }
 }
 
 fn main() {
-    // Match
-    println!("{}", num_to_string(1));
-    println!("{}", num_to_string(25));
+    // If Let
     println!("{}", unwrap_or_default(Some(10), 99));
     println!("{}", unwrap_or_default(None, 99));
+
+    // // Match
+    // println!("{}", num_to_string(1));
+    // println!("{}", num_to_string(25));
+    // println!("{}", unwrap_or_default(Some(10), 99));
+    // println!("{}", unwrap_or_default(None, 99));
 
     // // Loop
     // let nums = vec![ 3, 12, 5, 6, 9, 10 ];
