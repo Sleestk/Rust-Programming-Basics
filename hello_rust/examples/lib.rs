@@ -157,8 +157,36 @@ pub fn exercise_3() {
     println!("{s}");
 }
 
+// Error Handling
+#[derive(Debug)]
+pub enum MathError {
+    DivByZero
+}
+pub fn div(x: u32, y: u32) -> Result<u32, MathError> {
+    if y == 0 {
+        Err(MathError::DivByZero)
+    } else {
+        Ok ( x / y )
+    }
+}
+// return v[i] if i is a valid index, otherwise return default_val
+pub fn get(v: &[u32], i: usize, default_val: u32) -> u32 {
+    match v.get(i) {
+        Some(&val) => val,
+        None => default_val
+    }
+}
+
 fn main() {
-    // Ownership
+    // Error Handling
+    let nums = vec![10, 20, 30];
+    let res = get(&nums, 2, 0);
+    println!("{:?}", res);
+
+    let x = 10;
+    let y = 0;
+    let res = div(x, y);
+    println!("{:?}", res);
 
     // // If Let
     // println!("{}", unwrap_or_default(Some(10), 99));
