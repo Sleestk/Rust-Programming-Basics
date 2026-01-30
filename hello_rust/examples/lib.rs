@@ -55,25 +55,35 @@ pub enum Color {
 }
 
 // Struct
-#[derive(Debug)]
-pub struct Account {
-    address: String,
-    balance: u32
-}
-pub fn new(address: String) -> Account {
-    Account {
-        address,
-        balance: 0,
-    }
+// #[derive(Debug)]
+// pub struct Account {
+//     address: String,
+//     balance: u32
+// }
+// pub fn new(address: String) -> Account {
+//     Account {
+//         address,
+//         balance: 0,
+//     }
+// }
+
+// Vec
+pub fn init(x: u32, y: u32, z: u32) -> Vec<u32> {
+    vec![x, y, z]
 }
 
 fn main() {
-    // Struct
-    let a = Account { 
-        address: "123 Rust Lane".to_string(),
-        balance: 100
-    };
-    println!("{:?}, {:?}", a.address, a.balance);
+    // Vec
+    println!("{:?}", init(1, 2, 3));
+
+
+
+    // // Struct
+    // let a = Account { 
+    //     address: "123 Rust Lane".to_string(),
+    //     balance: 100
+    // };
+    // println!("{:?}, {:?}", a.address, a.balance);
 
     // // Enum
     // // Assign simple "unit" variants
