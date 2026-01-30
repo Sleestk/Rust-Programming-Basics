@@ -103,11 +103,26 @@ pub fn sign(x: i32) -> i32 {
     }
 }
 
+// Loop
+pub fn sum(nums: Vec<i32>) -> i32 {
+    let sum: i32 = nums.iter().sum();
+    sum
+}
+pub fn fill(i: u32, n: usize) -> Vec<u32> {
+    vec![i; n]
+}
+
 fn main() {
-    // If Else
-    println!("{}", min(10, 20));
-    println!("{}", max(10, 20));
-    println!("{}", sign(0));
+    // Loop
+    let nums = vec![ 3, 12, 5, 6, 9, 10 ];
+    println!("Sum of integers: {}", sum(nums));
+    println!("Vec len: {:?}", fill(0, 10));
+    println!("Vec len: {}", fill(0, 10).len());
+
+    // // If Else
+    // println!("{}", min(10, 20));
+    // println!("{}", max(10, 20));
+    // println!("{}", sign(0));
 
     // // Hash Map
     // let balances = init("0xABC".to_string(), 100);
