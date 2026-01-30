@@ -135,10 +135,34 @@ pub fn unwrap_or_default(x: Option<u32>, v: u32) -> u32 {
     }
 }
 
+// Ownership
+pub fn exercise_1() {
+    let s = "rust".to_string();
+    let s1 = s;
+    // let s2 = s;
+    println!("{s1}");
+}
+pub fn exercise_2() {
+    let s = "rust".to_string();
+    {
+        let s1 = s;
+        println!("{s1}");
+    }
+    // println!("{s}");
+}
+pub fn exercise_3() {
+    let s = "rust".to_string();
+    // take(s);
+    println!("{s}");
+    println!("{s}");
+}
+
 fn main() {
-    // If Let
-    println!("{}", unwrap_or_default(Some(10), 99));
-    println!("{}", unwrap_or_default(None, 99));
+    // Ownership
+
+    // // If Let
+    // println!("{}", unwrap_or_default(Some(10), 99));
+    // println!("{}", unwrap_or_default(None, 99));
 
     // // Match
     // println!("{}", num_to_string(1));
