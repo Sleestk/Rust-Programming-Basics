@@ -72,18 +72,46 @@ pub enum Color {
 //     vec![x, y, z]
 // }
 
-// HashMap
-use std::collections::HashMap;
-pub fn init(address: String, amount: u32) -> HashMap<String, u32> {
-    let mut map: HashMap<String, u32> = HashMap::new();
-    map.insert(address, amount);
-    map
+// // HashMap
+// use std::collections::HashMap;
+// pub fn init(address: String, amount: u32) -> HashMap<String, u32> {
+//     let mut map: HashMap<String, u32> = HashMap::new();
+//     map.insert(address, amount);
+//     map
+// }
+
+// If Else
+pub fn min(x: i32, y: i32) -> i32 {
+    if x < y { 
+        x
+    } else {
+        y
+    }
+}
+pub fn max(x: i32, y: i32) -> i32 {
+    if x < y { 
+        y
+    } else {
+        x
+    }
+}
+pub fn sign(x: i32) -> i32 {
+    if x < 0 { 
+        -1
+    } else {
+        1
+    }
 }
 
 fn main() {
-    // Hash Map
-    let balances = init("0xABC".to_string(), 100);
-    println!("{:?}", balances);
+    // If Else
+    println!("{}", min(10, 20));
+    println!("{}", max(10, 20));
+    println!("{}", sign(0));
+
+    // // Hash Map
+    // let balances = init("0xABC".to_string(), 100);
+    // println!("{:?}", balances);
 
     // // Vec
     // println!("{:?}", init(1, 2, 3));
