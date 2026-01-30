@@ -54,21 +54,41 @@ pub enum Color {
     Rgba(u8, u8, u8, f32)
 }
 
-fn main() {
-    // Enum
-    // Assign simple "unit" variants
-    let sky_color = Color::Blue;
-    let stop_color = Color::Red;
-    // Assign the "tuple" variant with data
-    let sunset_orange = Color::Rgba(255, 165, 0, 1.0);
-    // Print them using Debug trait
-    println!("{:?}", sky_color);
-    println!("{:?}", sunset_orange);
-    println!("{:?}", stop_color);
-    // Using the PartialEq trait to compare values
-    if stop_color == Color::Red {
-        println!("Stop light is red! STOP!"); 
+// Struct
+#[derive(Debug)]
+pub struct Account {
+    address: String,
+    balance: u32
+}
+pub fn new(address: String) -> Account {
+    Account {
+        address,
+        balance: 0,
     }
+}
+
+fn main() {
+    // Struct
+    let a = Account { 
+        address: "123 Rust Lane".to_string(),
+        balance: 100
+    };
+    println!("{:?}, {:?}", a.address, a.balance);
+
+    // // Enum
+    // // Assign simple "unit" variants
+    // let sky_color = Color::Blue;
+    // let stop_color = Color::Red;
+    // // Assign the "tuple" variant with data
+    // let sunset_orange = Color::Rgba(255, 165, 0, 1.0);
+    // // Print them using Debug trait
+    // println!("{:?}", sky_color);
+    // println!("{:?}", sunset_orange);
+    // println!("{:?}", stop_color);
+    // // Using the PartialEq trait to compare values
+    // if stop_color == Color::Red {
+    //     println!("Stop light is red! STOP!"); 
+    // }
 
     // // Strings and &str
     // println!("{}", hello());
