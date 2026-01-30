@@ -112,12 +112,32 @@ pub fn fill(i: u32, n: usize) -> Vec<u32> {
     vec![i; n]
 }
 
+// Match 
+pub fn num_to_string(num: u32) -> String {
+    match num {
+        1 | 2 | 3 => "one or two or three".to_string(),
+        _ => "ohter".to_string()
+    }
+}
+pub fn unwrap_or_default(x: Option<u32>, v: u32) -> u32 {
+    match x {
+        Some(n) => n,
+        None => v
+    }
+}
+
 fn main() {
-    // Loop
-    let nums = vec![ 3, 12, 5, 6, 9, 10 ];
-    println!("Sum of integers: {}", sum(nums));
-    println!("Vec len: {:?}", fill(0, 10));
-    println!("Vec len: {}", fill(0, 10).len());
+    // Match
+    println!("{}", num_to_string(1));
+    println!("{}", num_to_string(25));
+    println!("{}", unwrap_or_default(Some(10), 99));
+    println!("{}", unwrap_or_default(None, 99));
+
+    // // Loop
+    // let nums = vec![ 3, 12, 5, 6, 9, 10 ];
+    // println!("Sum of integers: {}", sum(nums));
+    // println!("Vec len: {:?}", fill(0, 10));
+    // println!("Vec len: {}", fill(0, 10).len());
 
     // // If Else
     // println!("{}", min(10, 20));
