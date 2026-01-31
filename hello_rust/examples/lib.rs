@@ -201,21 +201,21 @@
 // }
 
 // Generic Types
-pub fn first<T, U>(t: (T, U)) -> T {
-    t.0
-}
-pub fn last<T, U>(t: (T, U)) -> U {
-    t.1
-}
-#[derive(Debug)]
-pub struct Rectangle<T> {
-    pub top: T,
-    pub left: T,
-    pub width: T,
-    pub height: T
-}
+// pub fn first<T, U>(t: (T, U)) -> T {
+//     t.0
+// }
+// pub fn last<T, U>(t: (T, U)) -> U {
+//     t.1
+// }
+// #[derive(Debug)]
+// pub struct Rectangle<T> {
+//     pub top: T,
+//     pub left: T,
+//     pub width: T,
+//     pub height: T
+// }
+
 fn main() {
-    // Generic Types
 
     // // Question operator - ?
     // let nums = ["10", "20", "30"];
