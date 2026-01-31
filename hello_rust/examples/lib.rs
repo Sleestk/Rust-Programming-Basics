@@ -187,26 +187,42 @@
 //     x.unwrap() + y.unwrap()
 // }
 
-// Question operator - ?
-fn parse_u32(s: &str) -> Result<u32, String> {
-    Ok(s.parse::<u32>().map_err(|e| e.to_string())?)
-}
-pub fn sum(nums: &[&str]) -> Result<u32, String> {
-    let mut total = 0;
-    for n in nums {
-        let value = parse_u32(n)?;
-        total += value;
-    }
-    Ok(total)
-}
+// // Question operator - ?
+// fn parse_u32(s: &str) -> Result<u32, String> {
+//     Ok(s.parse::<u32>().map_err(|e| e.to_string())?)
+// }
+// pub fn sum(nums: &[&str]) -> Result<u32, String> {
+//     let mut total = 0;
+//     for n in nums {
+//         let value = parse_u32(n)?;
+//         total += value;
+//     }
+//     Ok(total)
+// }
 
+// Generic Types
+pub fn first<T, U>(t: (T, U)) -> T {
+    t.0
+}
+pub fn last<T, U>(t: (T, U)) -> U {
+    t.1
+}
+#[derive(Debug)]
+pub struct Rectangle<T> {
+    pub top: T,
+    pub left: T,
+    pub width: T,
+    pub height: T
+}
 fn main() {
-    // Question operator - ?
-    let nums = ["10", "20", "30"];
-    println!("{:?}", sum(&nums));
+    // Generic Types
 
-    let bad = ["10", "abc", "30"];
-    println!("{:?}", sum(&bad));
+    // // Question operator - ?
+    // let nums = ["10", "20", "30"];
+    // println!("{:?}", sum(&nums));
+
+    // let bad = ["10", "abc", "30"];
+    // println!("{:?}", sum(&bad));
 
     // // Unwrap and Expect
     // let res = parse_and_add("10", "20");
