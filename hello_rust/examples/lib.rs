@@ -177,16 +177,32 @@ pub fn get(v: &[u32], i: usize, default_val: u32) -> u32 {
     }
 }
 
-fn main() {
-    // Error Handling
-    let nums = vec![10, 20, 30];
-    let res = get(&nums, 2, 0);
-    println!("{:?}", res);
+// Unwrap and Expect
+pub fn parse_and_add(a: &str, b: &str) -> u32 {
+    let a_num: u32 = a.parse().expect("Failed to parse variable");
+    let b_num: u32 = b.parse().expect("Failed to parse variable");
+    a_num + b_num
+}
+pub fn unwrap_and_add(x: Option<u32>, y: Option<u32>) -> u32 {
+    x.unwrap() + y.unwrap()
+}
 
-    let x = 10;
-    let y = 0;
-    let res = div(x, y);
-    println!("{:?}", res);
+fn main() {
+    // Unwrap and Expect
+    let res = parse_and_add("10", "20");
+    println!("result: {}", res);
+    let res = unwrap_and_add(Some(50), Some(20));
+    println!("result: {}", res);
+
+    // // Error Handling
+    // let nums = vec![10, 20, 30];
+    // let res = get(&nums, 2, 0);
+    // println!("{:?}", res);
+
+    // let x = 10;
+    // let y = 0;
+    // let res = div(x, y);
+    // println!("{:?}", res);
 
     // // If Let
     // println!("{}", unwrap_or_default(Some(10), 99));
