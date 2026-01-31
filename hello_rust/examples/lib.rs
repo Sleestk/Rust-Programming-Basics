@@ -1,198 +1,218 @@
-// Overflow
-pub fn eq(a: char, b: char) -> bool {
-    a == b
-}
-pub fn add(c: f32, d: f32, e: f32) -> f32{
-    c + d + e
-}
-pub fn cast(x: u8, y: i8, z: f32) -> f32 {
-    let x = x as f32;
-    let y = y as f32;
-    x + y + z
-}
-
-// Tuples
-pub fn first(t: (bool, u32, char)) -> bool {
-    t.0
-}
-pub fn last(t: (bool, u32, char)) -> char {
-    t.2
-}
-pub fn swap(t: (u32, u32)) -> (u32, u32) {
-    (t.1, t.0)
-}
-
-// Arrays
-pub fn zeros() -> [u32; 100] {
-    [0; 100]
-}
-pub fn first_3(s: &[u32]) -> &[u32] {
-    &s[..3]
-}
-pub fn last_3(s: &[u32]) -> &[u32] {
-    &s[s.len() - 3 ..]
-}
-
-// Strings and &str
-pub fn hello() -> String {
-    String::from("Hello Rust")
-}
-pub fn greet(name: &str) -> String {
-    format!("Hello {}!", name)
-}
-pub fn append(mut s: String) -> String {
-    s += "!";
-    s
-}
-
-// Enum
-#[derive(Debug, PartialEq)]
-pub enum Color {
-    Red,
-    Green,
-    Blue,
-    Rgba(u8, u8, u8, f32)
-}
-
-// Struct
-// #[derive(Debug)]
-// pub struct Account {
-//     address: String,
-//     balance: u32
+// // Overflow
+// pub fn eq(a: char, b: char) -> bool {
+//     a == b
 // }
-// pub fn new(address: String) -> Account {
-//     Account {
-//         address,
-//         balance: 0,
+// pub fn add(c: f32, d: f32, e: f32) -> f32{
+//     c + d + e
+// }
+// pub fn cast(x: u8, y: i8, z: f32) -> f32 {
+//     let x = x as f32;
+//     let y = y as f32;
+//     x + y + z
+// }
+
+// // Tuples
+// pub fn first(t: (bool, u32, char)) -> bool {
+//     t.0
+// }
+// pub fn last(t: (bool, u32, char)) -> char {
+//     t.2
+// }
+// pub fn swap(t: (u32, u32)) -> (u32, u32) {
+//     (t.1, t.0)
+// }
+
+// // Arrays
+// pub fn zeros() -> [u32; 100] {
+//     [0; 100]
+// }
+// pub fn first_3(s: &[u32]) -> &[u32] {
+//     &s[..3]
+// }
+// pub fn last_3(s: &[u32]) -> &[u32] {
+//     &s[s.len() - 3 ..]
+// }
+
+// // Strings and &str
+// pub fn hello() -> String {
+//     String::from("Hello Rust")
+// }
+// pub fn greet(name: &str) -> String {
+//     format!("Hello {}!", name)
+// }
+// pub fn append(mut s: String) -> String {
+//     s += "!";
+//     s
+// }
+
+// // Enum
+// #[derive(Debug, PartialEq)]
+// pub enum Color {
+//     Red,
+//     Green,
+//     Blue,
+//     Rgba(u8, u8, u8, f32)
+// }
+
+// // Struct
+// // #[derive(Debug)]
+// // pub struct Account {
+// //     address: String,
+// //     balance: u32
+// // }
+// // pub fn new(address: String) -> Account {
+// //     Account {
+// //         address,
+// //         balance: 0,
+// //     }
+// // }
+
+// // // Vec
+// // pub fn init(x: u32, y: u32, z: u32) -> Vec<u32> {
+// //     vec![x, y, z]
+// // }
+
+// // // HashMap
+// // use std::collections::HashMap;
+// // pub fn init(address: String, amount: u32) -> HashMap<String, u32> {
+// //     let mut map: HashMap<String, u32> = HashMap::new();
+// //     map.insert(address, amount);
+// //     map
+// // }
+
+// // If Else
+// pub fn min(x: i32, y: i32) -> i32 {
+//     if x < y { 
+//         x
+//     } else {
+//         y
+//     }
+// }
+// pub fn max(x: i32, y: i32) -> i32 {
+//     if x < y { 
+//         y
+//     } else {
+//         x
+//     }
+// }
+// pub fn sign(x: i32) -> i32 {
+//     if x < 0 { 
+//         -1
+//     } else {
+//         1
 //     }
 // }
 
-// // Vec
-// pub fn init(x: u32, y: u32, z: u32) -> Vec<u32> {
-//     vec![x, y, z]
+// // Loop
+// pub fn sum(nums: Vec<i32>) -> i32 {
+//     let sum: i32 = nums.iter().sum();
+//     sum
+// }
+// pub fn fill(i: u32, n: usize) -> Vec<u32> {
+//     vec![i; n]
 // }
 
-// // HashMap
-// use std::collections::HashMap;
-// pub fn init(address: String, amount: u32) -> HashMap<String, u32> {
-//     let mut map: HashMap<String, u32> = HashMap::new();
-//     map.insert(address, amount);
-//     map
+// // Match 
+// pub fn num_to_string(num: u32) -> String {
+//     match num {
+//         1 | 2 | 3 => "one or two or three".to_string(),
+//         _ => "ohter".to_string()
+//     }
 // }
+// // pub fn unwrap_or_default(x: Option<u32>, v: u32) -> u32 {
+// //     match x {
+// //         Some(n) => n,
+// //         None => v
+// //     }
+// // }
 
-// If Else
-pub fn min(x: i32, y: i32) -> i32 {
-    if x < y { 
-        x
-    } else {
-        y
-    }
-}
-pub fn max(x: i32, y: i32) -> i32 {
-    if x < y { 
-        y
-    } else {
-        x
-    }
-}
-pub fn sign(x: i32) -> i32 {
-    if x < 0 { 
-        -1
-    } else {
-        1
-    }
-}
-
-// Loop
-pub fn sum(nums: Vec<i32>) -> i32 {
-    let sum: i32 = nums.iter().sum();
-    sum
-}
-pub fn fill(i: u32, n: usize) -> Vec<u32> {
-    vec![i; n]
-}
-
-// Match 
-pub fn num_to_string(num: u32) -> String {
-    match num {
-        1 | 2 | 3 => "one or two or three".to_string(),
-        _ => "ohter".to_string()
-    }
-}
+// // If Let
 // pub fn unwrap_or_default(x: Option<u32>, v: u32) -> u32 {
-//     match x {
-//         Some(n) => n,
-//         None => v
+//     if let Some(val) = x {
+//         val
+//     } else {
+//         v
 //     }
 // }
 
-// If Let
-pub fn unwrap_or_default(x: Option<u32>, v: u32) -> u32 {
-    if let Some(val) = x {
-        val
-    } else {
-        v
-    }
-}
+// // Ownership
+// pub fn exercise_1() {
+//     let s = "rust".to_string();
+//     let s1 = s;
+//     // let s2 = s;
+//     println!("{s1}");
+// }
+// pub fn exercise_2() {
+//     let s = "rust".to_string();
+//     {
+//         let s1 = s;
+//         println!("{s1}");
+//     }
+//     // println!("{s}");
+// }
+// pub fn exercise_3() {
+//     let s = "rust".to_string();
+//     // take(s);
+//     println!("{s}");
+//     println!("{s}");
+// }
 
-// Ownership
-pub fn exercise_1() {
-    let s = "rust".to_string();
-    let s1 = s;
-    // let s2 = s;
-    println!("{s1}");
-}
-pub fn exercise_2() {
-    let s = "rust".to_string();
-    {
-        let s1 = s;
-        println!("{s1}");
-    }
-    // println!("{s}");
-}
-pub fn exercise_3() {
-    let s = "rust".to_string();
-    // take(s);
-    println!("{s}");
-    println!("{s}");
-}
+// // Error Handling
+// #[derive(Debug)]
+// pub enum MathError {
+//     DivByZero
+// }
+// pub fn div(x: u32, y: u32) -> Result<u32, MathError> {
+//     if y == 0 {
+//         Err(MathError::DivByZero)
+//     } else {
+//         Ok ( x / y )
+//     }
+// }
+// // return v[i] if i is a valid index, otherwise return default_val
+// pub fn get(v: &[u32], i: usize, default_val: u32) -> u32 {
+//     match v.get(i) {
+//         Some(&val) => val,
+//         None => default_val
+//     }
+// }
 
-// Error Handling
-#[derive(Debug)]
-pub enum MathError {
-    DivByZero
-}
-pub fn div(x: u32, y: u32) -> Result<u32, MathError> {
-    if y == 0 {
-        Err(MathError::DivByZero)
-    } else {
-        Ok ( x / y )
-    }
-}
-// return v[i] if i is a valid index, otherwise return default_val
-pub fn get(v: &[u32], i: usize, default_val: u32) -> u32 {
-    match v.get(i) {
-        Some(&val) => val,
-        None => default_val
-    }
-}
+// // Unwrap and Expect
+// pub fn parse_and_add(a: &str, b: &str) -> u32 {
+//     let a_num: u32 = a.parse().expect("Failed to parse variable");
+//     let b_num: u32 = b.parse().expect("Failed to parse variable");
+//     a_num + b_num
+// }
+// pub fn unwrap_and_add(x: Option<u32>, y: Option<u32>) -> u32 {
+//     x.unwrap() + y.unwrap()
+// }
 
-// Unwrap and Expect
-pub fn parse_and_add(a: &str, b: &str) -> u32 {
-    let a_num: u32 = a.parse().expect("Failed to parse variable");
-    let b_num: u32 = b.parse().expect("Failed to parse variable");
-    a_num + b_num
+// Question operator - ?
+fn parse_u32(s: &str) -> Result<u32, String> {
+    Ok(s.parse::<u32>().map_err(|e| e.to_string())?)
 }
-pub fn unwrap_and_add(x: Option<u32>, y: Option<u32>) -> u32 {
-    x.unwrap() + y.unwrap()
+pub fn sum(nums: &[&str]) -> Result<u32, String> {
+    let mut total = 0;
+    for n in nums {
+        let value = parse_u32(n)?;
+        total += value;
+    }
+    Ok(total)
 }
 
 fn main() {
-    // Unwrap and Expect
-    let res = parse_and_add("10", "20");
-    println!("result: {}", res);
-    let res = unwrap_and_add(Some(50), Some(20));
-    println!("result: {}", res);
+    // Question operator - ?
+    let nums = ["10", "20", "30"];
+    println!("{:?}", sum(&nums));
+
+    let bad = ["10", "abc", "30"];
+    println!("{:?}", sum(&bad));
+
+    // // Unwrap and Expect
+    // let res = parse_and_add("10", "20");
+    // println!("result: {}", res);
+    // let res = unwrap_and_add(Some(50), Some(20));
+    // println!("result: {}", res);
 
     // // Error Handling
     // let nums = vec![10, 20, 30];
