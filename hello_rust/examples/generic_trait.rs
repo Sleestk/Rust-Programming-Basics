@@ -5,6 +5,46 @@ trait List<T>{
     fn first(&self) -> &T;
 }
 
+trait Iterator<T> {
+    fn next(&mut self) -> Option<&T>;
+}
+
+struct TupleIter<T> {
+    t: (T, T, T),
+    index: usize
+}
+
+struct VecIter<T> {
+    v: Vec<T>,
+    index: usize
+}
+
+impl<T> Iterator<T> for TupleIter<T> {
+    fn next(&mut self) -> Option<&T> {
+        let res = match self.index {
+            0 => Some(&self.t.0),
+            1 => Some(&self.t.1),
+            2 => Some(&self.t.2),
+            _ => None
+        };
+        self.index += 1;
+        res
+    }
+}
+
+impl<T> Iterator<T> for VecIter<T> {
+    fn next(&mut self) -> Option<&T> {
+        let res = match self.index {
+            0 => Some(&self.v[0]),
+            1 => Some(&self.v[1]),
+            2 => Some(&self.v[2]),
+            _ => None
+        };
+        self.index += 1;
+        res
+    }
+}
+
 impl List<u32> for (u32, bool, char) {
     fn count(&self) -> usize {
         3
