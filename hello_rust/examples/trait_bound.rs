@@ -11,6 +11,16 @@ fn max<T: PartialOrd>(x: T, y: T) -> T {
     }
 }
 
+fn zip<T: Copy, U: Copy>(a: Vec<T>, b: Vec<U>) -> Vec<(T, U)> {
+    let mut v = vec![];
+    let len = min(a.len(), b.len());
+
+    for i in 0..len {
+        v.push((a[i], b[i]));
+    }
+    v
+}
+
 trait A {}
 trait B {}
 trait C {}
@@ -28,6 +38,14 @@ fn w<T, U>(x: T, y: U) where
     T: A + B,
     U: B + C
 {}
+
+fn min<T: PartialOrd> (x: T, y: T) -> T {
+    if x <= y {
+        x
+    } else {
+        y
+    }
+}
 
 fn main() {
     let u: u32 = 1;
