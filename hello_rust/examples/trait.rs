@@ -1,6 +1,14 @@
 #![allow(unused)]
 
 // Trait
+struct Foundry {
+    version: String,
+}
+
+struct Cargo {
+    version: String,
+}
+
 struct Solidity {
     version: String,
 }
@@ -16,6 +24,14 @@ trait Compiler {
     }
 }
 
+trait Tester {
+    fn test(&self, file_path: &str) -> String;
+}
+
+fn test(tester: impl Tester, file_path: &str) -> String {
+    tester.test(file_path)
+}
+
 impl Compiler for Solidity {
     fn compile(&self, file_path: &str) -> String {
         format!("solc {}", file_path)
@@ -25,6 +41,18 @@ impl Compiler for Solidity {
 impl Compiler for Vyper {
     fn compile(&self, file_path: &str) -> String {
         format!("vyper {}", file_path)
+    }
+}
+
+impl Compiler for Foundry {
+    fn compile(&self, file_path: &str) -> String {
+        format!("forge test {}", file_path)
+    }
+}
+
+impl Compiler for Cargo {
+    fn compile(&self, file_path: &str) -> String {
+        format!("cargo test {}", file_path)
     }
 }
 
@@ -39,15 +67,26 @@ fn main() {
     let vy = Vyper {
         version: "0.4".to_string()
     };
+    let foundry = Foundry {
+        version: "1.5.0".to_string()
+    };
+    let cargo = Cargo {
+        version: "1.93.0".to_string()
+    };
 
     println!("sol help: {}", sol.help());
     println!("vyper help: {}", vy.help());
+    println!("foundry help: {}", foundry.help());
+    println!("cargo help: {}", cargo.help());
 
     println!("sol compile: {}", sol.compile("hello.sol"));
     println!("vyper compile: {}", vy.compile("hello.vy"));
+    println!("foundry compile: {}", foundry.compile("hello.foundry"));
+    println!("cargo compile: {}", cargo.compile("hello.cargo"));
 
-    println!("sol compile: {}", compile(&sol, "hello.sol"));
-    println!("vyper compile: {}", compile(&vy, "hello.vy"));
+
+    // println!("sol compile: {}", compile(&sol, "hello.sol"));
+    // println!("vyper compile: {}", compile(&vy, "hello.vy"));
 }
 // #[derive(Debug)]
 // struct Point {
