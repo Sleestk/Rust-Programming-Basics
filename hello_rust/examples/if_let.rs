@@ -1,6 +1,6 @@
 #![allow(unused)]
 
-// If Let
+// If Let - are you unwrapping an Option or Result?
 fn main () {
     let x: Option<i32> = Some(9);
     match x {

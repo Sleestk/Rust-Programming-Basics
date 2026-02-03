@@ -1,6 +1,6 @@
 #![allow(unused)]
 
-// If / else
+// If / else - are you checking a single condition and going one way or the other?
 fn main() {
     let x: i32 = 10;
 

@@ -1,6 +1,6 @@
 #!{allow(unused)}
 
-// Match
+// Match - are you branching on an enum cariant or pattern?
 fn main() {
     let x: i32 = 1;
     match x {
