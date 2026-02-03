@@ -22,9 +22,15 @@ fn main() {
     // ExecutorEnvBuilder::build().
 
     // For example:
-    let input: u32 = 15 * u32::pow(2, 27) + 1;
+    let age: u32 = 25;
+    let min_age: u32 = 18;
+    let max_age: u32 = 123;
     let env = ExecutorEnv::builder()
-        .write(&input)
+        .write(&age) // 1st read in guest
+        .unwrap()
+        .write(&min_age) // 2nd read in guest
+        .unwrap()
+        .write(&max_age) // 3rd read in guest
         .unwrap()
         .build()
         .unwrap();
@@ -41,10 +47,11 @@ fn main() {
     // extract the receipt.
     let receipt = prove_info.receipt;
 
-    // TODO: Implement code for retrieving receipt journal here.
+    // TODOj: Implement code for retrieving receipt ournal here.
+    // bool - guest commits a bool to the journal
 
     // For example:
-    let _output: u32 = receipt.journal.decode().unwrap();
+    let _output: bool = receipt.journal.decode().unwrap();
 
     // The receipt was verified at the end of proving, but the below code is an
     // example of how someone else could verify this receipt.
