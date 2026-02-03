@@ -2,22 +2,22 @@
 use risc0_zkvm::guest::env;
 
 fn main() {
-    // TODO: Implement your guest code here
-    // Though Process:
-    // I want to prove some one is that age without revealing their actual age
-    // Private Input: Since I am using age I will use u32 as the input
-    //  - Prove age >= a threshold 18+ so u32 is fine
-    // Computation: age >= threshold
-    // Public Output: The verifier should see true or false 
-    // Control Flow: Checking a single condition so if else is fine
-    // Data Type: Scalar (u32) since it represents a single value
-    // Compilation will not fail since it compares two u32 values
+    // Thought Process:
+    // I want to prove someone is within a valid age range without revealing their actual age
+    // Private Input: Three u32 values — age, min_age, and max_age
+    // Computation: age >= min_age && age <= max_age (range check)
+    // Public Output: The verifier should see true or false
+    // Control Flow: Single boolean expression so no if/else needed
+    // Data Type: Scalar (u32) for all three inputs, bool for output
 
     // read the input
     let age: u32 = env::read();
-    let is_adult: bool = age >= 18;
+    let min_age: u32 = env::read();
+    let max_age: u32 = env::read();
 
     // TODO: do something with the input
+    // check if age is within the valid range
+    let is_adult: bool = age >= min_age && age <= max_age;
 
     // write public output to the journal
     env::commit(&is_adult);
