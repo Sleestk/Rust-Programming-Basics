@@ -14,10 +14,11 @@ fn main() {
     // Compilation will not fail since it compares two u32 values
 
     // read the input
-    let input: u32 = env::read();
+    let age: u32 = env::read();
+    let is_adult: bool = age >= 18;
 
     // TODO: do something with the input
 
     // write public output to the journal
-    env::commit(&input);
+    env::commit(&is_adult);
 }
