@@ -47,7 +47,29 @@ async fn make_hamburger_seq() -> Hamburger {
     }
 }
 
+
+// executed concurrently 
+async fn make_hamburger() -> Hamburger {
+    let (bun, patty, (tomato, lettuce), cheese) = tokio::join!(
+        toast_bun(),
+        cook_patty(),
+        get_veggies(),
+        get_cheese()
+    );
+
+    println!("🍔 is ready");
+
+    Hamburger {
+        tomato,
+        lettuce,
+        cheese,
+        patty,
+        bun,
+    }
+}
+
 #[tokio::main]
 async fn main() {
-    make_hamburger_seq().await;
+    let fut = make_hamburger();
+    fut.await;
 }
